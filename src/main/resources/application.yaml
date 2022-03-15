@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Tbl2425209089yyds
+    url: jdbc:mysql://itlover.ltd:3306/mall?characterEncoding=utf-8&userSSL=false
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
