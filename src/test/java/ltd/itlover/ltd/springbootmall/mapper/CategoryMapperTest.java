@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @PropertySource("classpath:application.yaml")
 @MapperScan("ltd.itlover.ltd.springbootmall.mapper")
-class CategoryMapperTest {
+public class CategoryMapperTest {
     @Resource
     private CategoryMapper categoryMapper;
     @Test

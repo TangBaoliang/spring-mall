@@ -228,7 +228,19 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+    <select id="selectByCategoryIdSet" resultType="ltd.itlover.ltd.springbootmall.pojo.Product">
+      select
+            <include refid="Base_Column_List"/>
+        from mall_product
+        where status = 1
+        <if test="categoryIdSet != null" >
+          and category_id in 
+            <foreach collection="collection" item="item" index="index" open="(" separator="," close=")">
+              #{item}
+            </foreach>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
     update mall_product
     <set>
       <if test="record.id != null">

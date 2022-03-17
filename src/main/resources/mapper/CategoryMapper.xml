@@ -165,7 +165,14 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+  <select id="selectAll" resultType="ltd.itlover.ltd.springbootmall.pojo.Category">
+    select
+        <include refid="Base_Column_List"/>
+    from mall_category
+    where status = 1
+
+  </select>
+    <update id="updateByExampleSelective" parameterType="map">
     update mall_category
     <set>
       <if test="record.id != null">

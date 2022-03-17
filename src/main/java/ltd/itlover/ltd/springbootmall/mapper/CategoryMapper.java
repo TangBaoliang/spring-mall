@@ -5,7 +5,8 @@ import ltd.itlover.ltd.springbootmall.pojo.Category;
 import ltd.itlover.ltd.springbootmall.pojo.CategoryExample;
 import org.apache.ibatis.annotations.Param;
 
-public interface CategoryMapper {
+public interface
+CategoryMapper {
     long countByExample(CategoryExample example);
 
     int deleteByExample(CategoryExample example);
@@ -27,4 +28,6 @@ public interface CategoryMapper {
     int updateByPrimaryKeySelective(Category record);
 
     int updateByPrimaryKey(Category record);
+
+    List<Category> selectAll();
 }
