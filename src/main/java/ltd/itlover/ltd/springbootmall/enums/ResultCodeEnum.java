@@ -12,7 +12,10 @@ public enum ResultCodeEnum {
     PARAMETER_ERROR(3, "参数错误"),
     NEED_LOGIN(10, "用户未登录，请登录"),
     ACCOUNT_NOT_EXIST(11, "该邮箱对应用户不存在"),
-    PRODUCT_OFF_SALE_OR_DELETE(11, "商品不存在或者删除");
+    PRODUCT_OFF_SALE_OR_DELETE(12, "商品不存在或者删除"),
+
+    PRODUCT_NOT_EXIST(12, "商品不存在"),
+    STOCK_NOT_ENOUGH(13, "商品库存不足");
     private int code;
     private String msg;
 

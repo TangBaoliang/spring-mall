@@ -4,6 +4,10 @@ spring:
     username: root
     password: Tbl2425209089yyds
     url: jdbc:mysql://itlover.ltd:3306/mall?characterEncoding=utf-8&userSSL=false
+  redis:
+    host: 81.68.81.2
+    port: 6379
+    password: Tbl2425209089yyds
 mybatis:
   configuration:
     map-underscore-to-camel-case: true

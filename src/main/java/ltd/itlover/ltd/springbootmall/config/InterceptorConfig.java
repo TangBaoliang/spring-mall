@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-//@Configuration
+@Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -15,11 +15,12 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/configuration/ui")
                 .excludePathPatterns("/swagger-resources")
                 .excludePathPatterns("/configuration/security")
-                .excludePathPatterns("/v2/api-docs")
+                .excludePathPatterns("/v2/api-docs/**")
                 .excludePathPatterns("/error")
                 .excludePathPatterns("/webjars/**")
                 .excludePathPatterns("/**/favicon.ico")
                 .excludePathPatterns("/")
-                .excludePathPatterns("/csrf");
+                .excludePathPatterns("/csrf")
+                .excludePathPatterns("/cart/carts");
     }
 }

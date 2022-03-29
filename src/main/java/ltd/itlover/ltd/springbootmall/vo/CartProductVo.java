@@ -5,6 +5,9 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * @author 宝亮
+ */
 @Data
 public class CartProductVo {
     private Integer productId;
