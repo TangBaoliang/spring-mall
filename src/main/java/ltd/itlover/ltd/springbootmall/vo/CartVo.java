@@ -11,5 +11,5 @@ public class CartVo {
     private List<CartProductVo> cartProductVoList;
     private BigDecimal cartTotalPrice;
     private Integer cartTotalQuantity;
-
+    private boolean selectedAll;
 }

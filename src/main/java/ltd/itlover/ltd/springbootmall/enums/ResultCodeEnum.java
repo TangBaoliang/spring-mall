@@ -15,7 +15,8 @@ public enum ResultCodeEnum {
     PRODUCT_OFF_SALE_OR_DELETE(12, "商品不存在或者删除"),
 
     PRODUCT_NOT_EXIST(12, "商品不存在"),
-    STOCK_NOT_ENOUGH(13, "商品库存不足");
+    STOCK_NOT_ENOUGH(13, "商品库存不足"),
+    CART_PRODUCT_NOT_EXIST(14, "购物车里无此商品");
     private int code;
     private String msg;
 

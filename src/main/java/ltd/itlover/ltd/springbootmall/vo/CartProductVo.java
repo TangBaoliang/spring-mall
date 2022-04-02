@@ -1,5 +1,6 @@
 package ltd.itlover.ltd.springbootmall.vo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -9,6 +10,7 @@ import java.util.Date;
  * @author 宝亮
  */
 @Data
+@AllArgsConstructor
 public class CartProductVo {
     private Integer productId;
     private Integer quantity;
