@@ -2,6 +2,7 @@ package ltd.itlover.ltd.springbootmall.service.impl;
 
 import com.google.gson.Gson;
 import io.netty.util.internal.StringUtil;
+import ltd.itlover.ltd.springbootmall.config.InterceptorConfig;
 import ltd.itlover.ltd.springbootmall.enums.ProductStatusEnum;
 import ltd.itlover.ltd.springbootmall.enums.ResultCodeEnum;
 import ltd.itlover.ltd.springbootmall.form.CartAddForm;
@@ -153,5 +154,48 @@ public class CartServiceImpl implements CartService {
         }
         Long res = hashOperations.delete(redisKey, String.valueOf(productId));
         return list(userId);
+    }
+
+    @Override
+    public Result selectAll(Integer userId) {
+        HashOperations<String, String, String> hashOperations = stringRedisTemplate.opsForHash();
+        String redisKey = String.format(CART_REDIS_KEY_TEMPLATE, userId);
+
+        for (Cart cart : listForCart(userId)) {
+            cart.setProductSelected(true);
+            hashOperations.put(redisKey, String.valueOf(cart.getProductId()), new Gson().toJson(cart));
+        }
+        return list(userId);
+    }
+
+    @Override
+    public Result unSelectAll(Integer userId) {
+        HashOperations<String, String, String> hashOperations = stringRedisTemplate.opsForHash();
+        String redisKey = String.format(CART_REDIS_KEY_TEMPLATE, userId);
+
+        for (Cart cart : listForCart(userId)) {
+            cart.setProductSelected(false);
+            hashOperations.put(redisKey, String.valueOf(cart.getProductId()), new Gson().toJson(cart));
+        }
+        return list(userId);
+    }
+
+    @Override
+    public Result sum(Integer userId) {
+        Integer sum = listForCart(userId).stream()
+                .map(Cart::getQuantity)
+                .reduce(0, Integer::sum);
+        return Result.success(sum);
+    }
+
+    private List<Cart> listForCart (Integer userId) {
+        HashOperations<String, String, String> opsForHash = stringRedisTemplate.opsForHash();
+        String redisKey = String.format(CART_REDIS_KEY_TEMPLATE, userId);
+        Map<String, String> entries = opsForHash.entries(redisKey);
+        List<Cart> cartList = new ArrayList<>();
+        for (Map.Entry<String, String> stringStringEntry : entries.entrySet()) {
+            cartList.add(new Gson().fromJson(stringStringEntry.getValue(), Cart.class));
+        }
+        return cartList;
     }
 }

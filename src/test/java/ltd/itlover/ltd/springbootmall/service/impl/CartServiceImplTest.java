@@ -43,6 +43,13 @@ class CartServiceImplTest extends ProductServiceImplTest{
         cartUpdateForm.setSelected(true);
         System.out.println(cartService.update(1, 26, cartUpdateForm));
     }
+    @Test
+    void sum () {
+        System.out.println(cartService.sum(1));
+    }
 
-
+    @Test
+    void selectAll () {
+        System.out.println(cartService.selectAll(1))        ;
+    }
 }

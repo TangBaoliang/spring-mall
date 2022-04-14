@@ -14,4 +14,9 @@ public interface CartService {
     Result list(Integer uid);
     Result update (Integer uid, Integer productId, CartUpdateForm cartUpdateForm);
     Result delete (Integer userId, Integer productId);
+    Result selectAll(Integer userId);
+
+    Result unSelectAll(Integer userId);
+
+    Result sum(Integer userId);
 }
