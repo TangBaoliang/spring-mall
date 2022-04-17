@@ -1,5 +1,6 @@
 package ltd.itlover.ltd.springbootmall.service.impl;
 
+import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
 import io.netty.util.internal.StringUtil;
 import ltd.itlover.ltd.springbootmall.config.InterceptorConfig;
@@ -43,7 +44,7 @@ public class CartServiceImpl implements CartService {
     @Override
     public Result add(CartAddForm cartAddForm, Integer userId) {
         Integer quantity = 1;
-
+        PageInfo pageInfo = new PageInfo();
         //商品是否存在和是否可售
         Product product = productMapper.selectByPrimaryKey(cartAddForm.getProductId());
 

@@ -8,6 +8,11 @@ spring:
     host: 81.68.81.2
     port: 6379
     password: Tbl2425209089yyds
+  rabbitmq:
+    addresses: 81.68.81.2
+    port: 5672
+    username: guest
+    password: Tbl2425209089yyds
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
