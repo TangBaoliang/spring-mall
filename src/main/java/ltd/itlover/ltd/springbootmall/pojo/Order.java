@@ -1,11 +1,8 @@
 package ltd.itlover.ltd.springbootmall.pojo;
 
-import lombok.Data;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Data
 public class Order {
     private Integer id;
 
@@ -34,6 +31,8 @@ public class Order {
     private Date createTime;
 
     private Date updateTime;
+
+    private String shipping;
 
     public Integer getId() {
         return id;
@@ -145,5 +144,13 @@ public class Order {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getShipping() {
+        return shipping;
+    }
+
+    public void setShipping(String shipping) {
+        this.shipping = shipping == null ? null : shipping.trim();
     }
 }

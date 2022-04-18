@@ -7,8 +7,10 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
+ * 购物车每一项商品的信息
  * @author 宝亮
  */
+
 @Data
 @AllArgsConstructor
 public class CartProductVo {

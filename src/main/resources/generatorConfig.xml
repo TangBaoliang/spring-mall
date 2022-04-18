@@ -5,14 +5,14 @@
 
 <generatorConfiguration>
     
-    <classPathEntry location="C:\Program Files\JetBrains\repository\mysql\mysql-connector-java\8.0.26\mysql-connector-java-8.0.26.jar" />
+    <classPathEntry location="D:\java-repository\mysql\mysql-connector-java\8.0.26\mysql-connector-java-8.0.26.jar" />
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://itlover.ltd/mall?serverTimezone=UTC"
+                        connectionURL="jdbc:mysql://81.68.81.2/mall?serverTimezone=UTC"
                         userId="tbl"
                         password="Tbl2425209089yyds"
         >
@@ -38,13 +38,13 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="ltd.itlover.ltd.springbootmall.mapper"  targetProject="src\main\java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
-        <table tableName="mall_category" domainObjectName="Category"
-               enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true"
-               enableSelectByExample="true"
-               selectByExampleQueryId="true"
-        />
+<!--        <table tableName="mall_category" domainObjectName="Category"-->
+<!--               enableCountByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="true"-->
+<!--        />-->
         <table tableName="mall_order" domainObjectName="Order"
                enableCountByExample="true"
                enableUpdateByExample="true"
@@ -52,40 +52,40 @@
                enableSelectByExample="true"
                selectByExampleQueryId="true"
         />
-        <table tableName="mall_order_item" domainObjectName="OrderItem"
-               enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true"
-               enableSelectByExample="true"
-               selectByExampleQueryId="true"
-        />
-        <table tableName="mall_pay_info" domainObjectName="PayInfo"
-               enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true"
-               enableSelectByExample="true"
-               selectByExampleQueryId="true"
-        />
-        <table tableName="mall_product" domainObjectName="Product"
-               enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true"
-               enableSelectByExample="true"
-               selectByExampleQueryId="true"
-        />
-        <table tableName="mall_shipping" domainObjectName="Shipping"
-               enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true"
-               enableSelectByExample="true"
-               selectByExampleQueryId="true"
-        />
-        <table tableName="mall_user" domainObjectName="User"
-               enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true"
-               enableSelectByExample="true"
-               selectByExampleQueryId="true"
-        />
+<!--        <table tableName="mall_order_item" domainObjectName="OrderItem"-->
+<!--               enableCountByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="true"-->
+<!--        />-->
+<!--        <table tableName="mall_pay_info" domainObjectName="PayInfo"-->
+<!--               enableCountByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="true"-->
+<!--        />-->
+<!--        <table tableName="mall_product" domainObjectName="Product"-->
+<!--               enableCountByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="true"-->
+<!--        />-->
+<!--        <table tableName="mall_shipping" domainObjectName="Shipping"-->
+<!--               enableCountByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="true"-->
+<!--        />-->
+<!--        <table tableName="mall_user" domainObjectName="User"-->
+<!--               enableCountByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="true"-->
+<!--        />-->
     </context>
 </generatorConfiguration>

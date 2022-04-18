@@ -10,9 +10,22 @@ import ltd.itlover.ltd.springbootmall.utils.Result;
 public interface OrderService {
 
     /**
-     *
-     * TODO 更新订单的支付状态
-     * @return
+     * 将订单状态改为已经支付的状态
+     * @param orderNo 订单号
      */
     void paid(Long orderNo);
+
+    /**
+     * 根据购物车创建订单
+     * @param userId 用户的 id
+     * @param shippingId 收获地址 id
+     * @return 返回创建好的订单，包括订单号
+     */
+    Result create(Integer userId, Integer shippingId);
+
+    Result list(Integer userId, Integer pageNum, Integer pageSize);
+
+    Result cancel(Integer userId, Long orderNo);
+
+    Result detail(Integer userId, Long orderNo);
 }

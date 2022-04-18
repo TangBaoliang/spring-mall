@@ -2,7 +2,10 @@ package ltd.itlover.ltd.springbootmall.service;
 
 import ltd.itlover.ltd.springbootmall.form.CartAddForm;
 import ltd.itlover.ltd.springbootmall.form.CartUpdateForm;
+import ltd.itlover.ltd.springbootmall.pojo.Cart;
 import ltd.itlover.ltd.springbootmall.utils.Result;
+
+import java.util.List;
 
 /**
  * @author TangBaoLiang
@@ -19,4 +22,6 @@ public interface CartService {
     Result unSelectAll(Integer userId);
 
     Result sum(Integer userId);
+
+    List<Cart> listForCart(Integer userId);
 }

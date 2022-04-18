@@ -29,7 +29,7 @@ public enum ResultCodeEnum {
     ORDER_NOT_EXIST(21, "不存在的订单被支付了");
 
 
-    private int code;
+    private Integer code;
     private String msg;
 
     ResultCodeEnum(int code, String msg) {

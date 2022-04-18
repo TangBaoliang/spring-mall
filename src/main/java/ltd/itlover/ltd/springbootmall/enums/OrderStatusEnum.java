@@ -17,10 +17,10 @@ public enum OrderStatusEnum {
     CLOSED(60, "交易关闭");
 
 
-    private int code;
+    private Integer code;
     private String msg;
 
-    OrderStatusEnum(int code, String msg) {
+    OrderStatusEnum(Integer code, String msg) {
         this.msg = msg;
         this.code = code;
     }
