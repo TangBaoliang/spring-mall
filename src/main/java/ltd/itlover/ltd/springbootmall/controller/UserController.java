@@ -50,7 +50,7 @@ public class UserController {
         User user = new User();
         BeanUtils.copyProperties(userLoginVo, user);
         Result result = userService.login(user);
-        httpServletRequest.getSession().setAttribute(MallConstance.CURRENT_USER, user);
+        httpServletRequest.getSession().setAttribute(MallConstance.CURRENT_USER, result.getData());
         return result;
     }
 

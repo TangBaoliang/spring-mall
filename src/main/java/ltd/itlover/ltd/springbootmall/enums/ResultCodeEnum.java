@@ -16,7 +16,12 @@ public enum ResultCodeEnum {
 
     PRODUCT_NOT_EXIST(12, "商品不存在"),
     STOCK_NOT_ENOUGH(13, "商品库存不足"),
+    DELETE_ERROR(15, "删除失败"),
+    ADD_ERROR(16, "添加失败"),
+    MODIFY_ERROR(18, "更新失败"),
+    CONTACT_WAY_NULL(17, "联系方式不能为空"),
     CART_PRODUCT_NOT_EXIST(14, "购物车里无此商品");
+
     private int code;
     private String msg;
 
