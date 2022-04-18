@@ -74,7 +74,7 @@ public class CartServiceImpl implements CartService {
             cart.setQuantity(cart.getQuantity() + 1);
         }
         //写入到 Redis 中
-        //一般用 String 类型作为 redishash 的键
+        //一般用 String 类型作为 redis hash 的键
 
 
         opsForHash.put(String.format(CART_REDIS_KEY_TEMPLATE, userId), String.valueOf(product.getId()), new Gson().toJson(cart));
@@ -189,7 +189,8 @@ public class CartServiceImpl implements CartService {
         return Result.success(sum);
     }
 
-    private List<Cart> listForCart (Integer userId) {
+    @Override
+    public List<Cart> listForCart (Integer userId) {
         HashOperations<String, String, String> opsForHash = stringRedisTemplate.opsForHash();
         String redisKey = String.format(CART_REDIS_KEY_TEMPLATE, userId);
         Map<String, String> entries = opsForHash.entries(redisKey);
