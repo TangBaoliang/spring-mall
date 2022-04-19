@@ -149,8 +149,6 @@ public class OrderServiceImpl implements OrderService {
         if (rowForItemSize < orderItemSize) {
             return Result.error(ResultCodeEnum.ERROR, "订单明细插入失败");
         }
-
-
         //清空购物车
         for (Cart cart : cartList) {
             cartService.delete(userId, cart.getProductId());
