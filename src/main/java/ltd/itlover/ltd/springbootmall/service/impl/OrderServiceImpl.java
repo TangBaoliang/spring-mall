@@ -25,7 +25,6 @@ import org.springframework.util.CollectionUtils;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.*;
-import java.util.logging.Handler;
 import java.util.stream.Collectors;
 
 /**
@@ -75,7 +74,6 @@ public class OrderServiceImpl implements OrderService {
         if (count <= 0) {
             throw new RuntimeException(ResultCodeEnum.MODIFY_ORDER_STATUS_FAILED.getMsg());
         }
-
     }
 
     @Override
@@ -89,7 +87,6 @@ public class OrderServiceImpl implements OrderService {
             return Result.error(ResultCodeEnum.ERROR, "收货地址错误");
         }
         Shipping shipping = shippingList.get(0);
-
         //获取购物车的信息, 检验是否有选中的商品
         List<Cart> cartList = cartService.listForCart(userId).stream()
                 .filter(Cart::getProductSelected)
@@ -291,6 +288,4 @@ public class OrderServiceImpl implements OrderService {
 
         return Result.success(orderVo);
     }
-
-
 }

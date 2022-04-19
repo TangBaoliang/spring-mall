@@ -28,4 +28,5 @@ public interface OrderService {
     Result cancel(Integer userId, Long orderNo);
 
     Result detail(Integer userId, Long orderNo);
+
 }
