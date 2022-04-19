@@ -38,5 +38,5 @@ public class OrderVo {
 
 	private Integer shippingId;
 
-	private String shipping;
+	private Shipping shipping;
 }

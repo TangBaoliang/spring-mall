@@ -32,7 +32,7 @@ public class Order {
 
     private Date updateTime;
 
-    private String shipping;
+    private Shipping shipping;
 
     public Integer getId() {
         return id;
@@ -146,11 +146,11 @@ public class Order {
         this.updateTime = updateTime;
     }
 
-    public String getShipping() {
+    public Shipping getShipping() {
         return shipping;
     }
 
-    public void setShipping(String shipping) {
-        this.shipping = shipping == null ? null : shipping.trim();
+    public void setShipping(Shipping shipping) {
+        this.shipping = shipping;
     }
 }

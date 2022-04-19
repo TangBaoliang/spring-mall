@@ -45,13 +45,24 @@
 <!--               enableSelectByExample="true"-->
 <!--               selectByExampleQueryId="true"-->
 <!--        />-->
+<!--        <table tableName="mall_order" domainObjectName="Order"-->
+<!--               enableCountByExample="true"-->
+<!--               enableUpdateByExample="true"-->
+<!--               enableDeleteByExample="true"-->
+<!--               enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="true"-->
+<!--               -->
+<!--        />-->
         <table tableName="mall_order" domainObjectName="Order"
                enableCountByExample="true"
                enableUpdateByExample="true"
                enableDeleteByExample="true"
                enableSelectByExample="true"
                selectByExampleQueryId="true"
-        />
+
+        >
+            <columnOverride javaType="ltd.itlover.ltd.springbootmall.pojo.Shipping" column="shipping" typeHandler="ltd.itlover.ltd.springbootmall.handler.JsonTypeHandler" property="shipping" jdbcType="LONGVARCHAR"/>
+        </table>
 <!--        <table tableName="mall_order_item" domainObjectName="OrderItem"-->
 <!--               enableCountByExample="true"-->
 <!--               enableUpdateByExample="true"-->

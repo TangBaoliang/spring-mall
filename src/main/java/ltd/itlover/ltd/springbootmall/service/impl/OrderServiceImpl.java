@@ -197,7 +197,7 @@ public class OrderServiceImpl implements OrderService {
     private Order buildOrder (Integer userId, Long orderNo, Shipping shipping, List<OrderItem> orderItems) {
         Order order = new Order();
         order.setOrderNo(orderNo);
-        order.setShipping(new Gson().toJson(shipping));
+        order.setShipping(shipping);
         order.setCreateTime(new Date());
 
         BigDecimal payment = orderItems.stream()
@@ -219,7 +219,7 @@ public class OrderServiceImpl implements OrderService {
         //获取用户的所有订单
         OrderExample orderExample = new OrderExample();
         orderExample.createCriteria().andUserIdEqualTo(userId);
-        List<Order> orderList = orderMapper.selectByExample(orderExample);
+        List<Order> orderList = orderMapper.selectByExampleWithBLOBs(orderExample);
         if (orderList == null || orderList.size() <= 0) {
             return Result.success(new PageInfo<>());
         }

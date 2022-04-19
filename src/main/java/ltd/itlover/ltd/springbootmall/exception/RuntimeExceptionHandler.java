@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 @RestControllerAdvice
 public class RuntimeExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
-    @ResponseStatus(HttpStatus.ACCEPTED)
+//    @ResponseStatus(HttpStatus.ACCEPTED)
     public Result handle1(RuntimeException e) {
         return Result.error(ResultCodeEnum.ERROR, e.getMessage());
     }
 
     @ExceptionHandler(UserLoginException.class)
-    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
+//    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     public Result handle2(UserLoginException e) {
         return Result.error(ResultCodeEnum.NEED_LOGIN, e.getMessage());
     }

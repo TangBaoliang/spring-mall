@@ -7,7 +7,7 @@ import ltd.itlover.ltd.springbootmall.enums.ResultCodeEnum;
 
 @Data
 @AllArgsConstructor
-@JsonInclude(value = JsonInclude.Include.NON_NULL)
+//@JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class Result<T> {
     private Integer status;
     private String msg;
