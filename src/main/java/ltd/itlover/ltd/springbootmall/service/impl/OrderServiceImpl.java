@@ -273,7 +273,7 @@ public class OrderServiceImpl implements OrderService {
     public Result detail(Integer userId, Long orderNo) {
         OrderExample orderExample = new OrderExample();
         orderExample.createCriteria().andUserIdEqualTo(userId).andOrderNoEqualTo(orderNo);
-        List<Order> orderList = orderMapper.selectByExample(orderExample);
+        List<Order> orderList = orderMapper.selectByExampleWithBLOBs(orderExample);
         if ( CollectionUtils.isEmpty(orderList) ) {
             return Result.error(ResultCodeEnum.ERROR, "该订单不存在userId = " + userId + ",orderNo=" + orderNo);
         }
