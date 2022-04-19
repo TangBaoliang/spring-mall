@@ -18,7 +18,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="ltd.itlover.ltd.springbootmall.pojo.Order">
-    <result column="shipping" jdbcType="LONGVARCHAR" property="shipping" typeHandler="ltd.itlover.ltd.springbootmall.handler.JsonTypeHandler"/>
+    <result column="shipping" jdbcType="LONGVARCHAR" property="shipping" typeHandler="ltd.itlover.ltd.springbootmall.handler.JsonTypeHandler" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -85,7 +85,7 @@
   <sql id="Blob_Column_List">
     shipping
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="ltd.itlover.ltd.springbootmall.pojo.OrderExample" resultMap="ResultMapWithBLOBs" >
+  <select id="selectByExampleWithBLOBs" parameterType="ltd.itlover.ltd.springbootmall.pojo.OrderExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -242,7 +242,7 @@
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="shipping != null">
-        #{shipping,jdbcType=LONGVARCHAR, typeHandler=ltd.itlover.ltd.springbootmall.handler.JsonTypeHandler},
+        #{shipping,jdbcType=LONGVARCHAR,typeHandler=ltd.itlover.ltd.springbootmall.handler.JsonTypeHandler},
       </if>
     </trim>
   </insert>
@@ -298,7 +298,7 @@
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.shipping != null">
-        shipping = #{record.shipping,jdbcType=LONGVARCHAR, typeHandler=ltd.itlover.ltd.springbootmall.handler.JsonTypeHandler},
+        shipping = #{record.shipping,jdbcType=LONGVARCHAR,typeHandler=ltd.itlover.ltd.springbootmall.handler.JsonTypeHandler},
       </if>
     </set>
     <if test="_parameter != null">
@@ -321,7 +321,7 @@
       close_time = #{record.closeTime,jdbcType=TIMESTAMP},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      shipping = #{record.shipping,jdbcType=LONGVARCHAR, typeHandler=ltd.itlover.ltd.springbootmall.handler.JsonTypeHandler}
+      shipping = #{record.shipping,jdbcType=LONGVARCHAR,typeHandler=ltd.itlover.ltd.springbootmall.handler.JsonTypeHandler}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -409,7 +409,7 @@
       close_time = #{closeTime,jdbcType=TIMESTAMP},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      shipping = #{shipping,jdbcType=LONGVARCHAR, typeHandler=ltd.itlover.ltd.springbootmall.handler.JsonTypeHandler}
+      shipping = #{shipping,jdbcType=LONGVARCHAR,typeHandler=ltd.itlover.ltd.springbootmall.handler.JsonTypeHandler}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="ltd.itlover.ltd.springbootmall.pojo.Order">
