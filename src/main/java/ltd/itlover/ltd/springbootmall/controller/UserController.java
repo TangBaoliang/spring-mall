@@ -21,14 +21,13 @@ import javax.validation.Valid;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/user")
 @Slf4j
 public class UserController {
     @Resource
     private UserService userService;
 
 
-    @PostMapping("/register")
+    @PostMapping("/user/register")
     @ApiOperation(value="用户注册", authorizations = { @Authorization(value="Authorization") })
     public Result register(@Valid @RequestBody User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -41,7 +40,7 @@ public class UserController {
         return Result.success();
     }
 
-    @PostMapping("/login")
+    @PostMapping("/user/login")
     @ApiOperation(value="用户登录", authorizations = { @Authorization(value="Authorization") })
     public Result login(@Valid @RequestBody UserLoginVo userLoginVo, BindingResult bindingResult, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
@@ -54,7 +53,7 @@ public class UserController {
         return result;
     }
 
-    @GetMapping("/info")
+    @GetMapping("/user")
     public Result<User> userinfo(HttpSession httpSession) {
         User user = (User) httpSession.getAttribute(MallConstance.CURRENT_USER);
         if (user == null) {
@@ -64,7 +63,7 @@ public class UserController {
         return Result.success(user);
     }
 
-    @PostMapping("/logout")
+    @PostMapping("/user/logout")
     @ApiOperation(value="退出登录", authorizations = { @Authorization(value="Authorization") })
     public Result logout(HttpSession session) {
         session.removeAttribute(MallConstance.CURRENT_USER);

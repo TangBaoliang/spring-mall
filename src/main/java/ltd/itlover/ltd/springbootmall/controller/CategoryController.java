@@ -13,12 +13,11 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
-@RequestMapping("/category")
 public class CategoryController {
     @Resource
     private CategoryService categoryService;
 
-    @GetMapping("/list")
+    @GetMapping("/categories")
     @ApiOperation(value="查询所有商品类别", authorizations = { @Authorization(value="Authorization") })
     public Result<List<CategoryVo>> getAll () {
         return categoryService.selectAll();

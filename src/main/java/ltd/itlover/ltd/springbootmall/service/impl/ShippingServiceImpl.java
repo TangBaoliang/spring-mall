@@ -1,5 +1,7 @@
 package ltd.itlover.ltd.springbootmall.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import ltd.itlover.ltd.springbootmall.enums.ResultCodeEnum;
 import ltd.itlover.ltd.springbootmall.mapper.ShippingMapper;
 import ltd.itlover.ltd.springbootmall.pojo.Shipping;
@@ -19,13 +21,15 @@ public class ShippingServiceImpl implements ShippingService {
     private ShippingMapper shippingMapper;
 
     @Override
-    public Result getByUserId(Integer userId) {
+    public Result getByUserId(Integer userId, Integer pageNum, Integer pageSize) {
 
         ShippingExample shippingExample = new ShippingExample();
         shippingExample.createCriteria().andUserIdEqualTo(userId);
+        PageHelper.startPage(pageNum, pageSize);
         List<Shipping> shippingList = shippingMapper.selectByExample(shippingExample);
-
-        return Result.success(shippingList);
+        PageInfo pageInfo = new PageInfo();
+        pageInfo.setList(shippingList);
+        return Result.success(pageInfo);
     }
 
     @Override

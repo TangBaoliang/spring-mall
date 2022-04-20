@@ -15,27 +15,26 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 @RestController
-@RequestMapping("/order")
 public class OrderController {
 
     @Resource
     private OrderService orderService;
 
-    @GetMapping("/detail/{orderNo}")
+    @GetMapping("/orders/{orderNo}")
     @ApiOperation(value = "订单详情", authorizations = { @Authorization(value="Authorization") })
     public Result detail (@ApiIgnore HttpSession httpSession,@ApiParam(value = "订单编号") @PathVariable("orderNo") Long orderNo) {
         Integer userId = ((User) httpSession.getAttribute(MallConstance.CURRENT_USER)).getId();
         return orderService.detail(userId, orderNo);
     }
 
-    @PostMapping("/{shippingId}")
+    @PostMapping("/orders")
     @ApiOperation(value = "创建订单", authorizations = { @Authorization(value="Authorization") })
     public Result create (@ApiIgnore HttpSession httpSession, @ApiParam(value = "收货地址id") @PathVariable("shippingId") Integer shippingId) {
         Integer userId = ((User) httpSession.getAttribute(MallConstance.CURRENT_USER)).getId();
         return orderService.create(userId, shippingId);
     }
 
-    @GetMapping("/list")
+    @GetMapping("/orders")
     @ApiOperation(value = "显示用户所有订单", authorizations = { @Authorization(value="Authorization") })
     public Result list (@RequestParam Integer pageNum,
                         @RequestParam Integer pageSize,
@@ -44,7 +43,7 @@ public class OrderController {
         return orderService.list(userId, pageNum, pageSize);
     }
 
-    @PutMapping("/{orderNo}")
+    @PutMapping("/orders/{orderNo}")
     @ApiOperation(value = "取消订单", authorizations = { @Authorization(value="Authorization") })
     public Result cancel (@ApiParam(value = "订单编号") @PathVariable("orderNo") Long orderNo,
                           @ApiIgnore  HttpSession httpSession) {

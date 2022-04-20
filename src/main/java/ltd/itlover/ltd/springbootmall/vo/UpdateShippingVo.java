@@ -8,8 +8,8 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class UpdateShippingVo {
 
-    @NotBlank(message = "收获地址的 id 不能为空")
-    @ApiModelProperty(value = "收货地址 id")
+//    @NotBlank(message = "收获地址的 id 不能为空")
+//    @ApiModelProperty(value = "收货地址 id")
     private Integer id;
 
     @NotBlank(message = "收货人不能为空")

@@ -22,7 +22,6 @@ import javax.validation.Valid;
  * @email developert163@163.com
  **/
 @RestController
-@RequestMapping("/cart")
 public class CartController {
     @Resource
     private CartService cartService;

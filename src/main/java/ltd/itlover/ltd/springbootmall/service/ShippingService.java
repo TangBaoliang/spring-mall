@@ -6,7 +6,7 @@ import ltd.itlover.ltd.springbootmall.utils.Result;
 import java.util.List;
 
 public interface ShippingService {
-    Result getByUserId (Integer userId);
+    Result getByUserId (Integer userId, Integer pageNum, Integer pageSize);
 
     Result batchDelShipping(List<Integer> ids, Integer userId);
 

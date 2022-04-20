@@ -6,15 +6,11 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.Authorization;
 import ltd.itlover.ltd.springbootmall.service.ProductService;
 import ltd.itlover.ltd.springbootmall.utils.Result;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping("/product")
 public class ProductController {
     @Resource
     private ProductService productService;
@@ -27,9 +23,9 @@ public class ProductController {
         return productService.list(categoryId, pageNum, pageSize);
     }
 
-    @GetMapping("/detail")
+    @GetMapping("/products/{productId}")
     @ApiOperation(value="根据商品 id 查询商品详细", authorizations = { @Authorization(value="Authorization") })
-    public Result detail(@ApiParam("商品id") @RequestParam(required = true) Integer productId) {
+    public Result detail(@ApiParam("商品id") @PathVariable("productId") Integer productId) {
         return productService.detail(productId);
     }
 }
