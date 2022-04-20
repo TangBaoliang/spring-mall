@@ -47,7 +47,9 @@ public class UserController {
             return Result.error(ResultCodeEnum.PARAMETER_ERROR, bindingResult.getFieldError().getDefaultMessage());
         }
         User user = new User();
-        BeanUtils.copyProperties(userLoginVo, user);
+        //BeanUtils.copyProperties(userLoginVo, user);
+        user.setPassword(userLoginVo.getPassword());
+        user.setEmail(userLoginVo.getUsername());
         Result result = userService.login(user);
         httpServletRequest.getSession().setAttribute(MallConstance.CURRENT_USER, result.getData());
         return result;

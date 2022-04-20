@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 public class UserLoginVo {
     @Email(message = "邮箱格式不合法")
     @NotBlank
-    private String email;
+    private String username;
 
     @NotBlank(message = "密码不能为空")
     private String password;
