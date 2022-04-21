@@ -7,6 +7,7 @@ import ltd.itlover.ltd.springbootmall.constance.MallConstance;
 import ltd.itlover.ltd.springbootmall.pojo.User;
 import ltd.itlover.ltd.springbootmall.service.OrderService;
 import ltd.itlover.ltd.springbootmall.utils.Result;
+import ltd.itlover.ltd.springbootmall.vo.OrderCreateForm;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
@@ -29,9 +30,9 @@ public class OrderController {
 
     @PostMapping("/orders")
     @ApiOperation(value = "创建订单", authorizations = { @Authorization(value="Authorization") })
-    public Result create (@ApiIgnore HttpSession httpSession, @ApiParam(value = "收货地址id") @PathVariable("shippingId") Integer shippingId) {
+    public Result create (@ApiIgnore HttpSession httpSession, @RequestBody OrderCreateForm orderCreateForm) {
         Integer userId = ((User) httpSession.getAttribute(MallConstance.CURRENT_USER)).getId();
-        return orderService.create(userId, shippingId);
+        return orderService.create(userId, orderCreateForm.getShippingId());
     }
 
     @GetMapping("/orders")
