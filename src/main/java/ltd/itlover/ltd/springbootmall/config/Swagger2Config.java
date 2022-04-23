@@ -46,7 +46,7 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Pay")
+                .title("Mall")
                 .contact(new Contact("Mall", "url", "email@xx.com"))
                 .description("base api")
                 .version("1.0.1")
