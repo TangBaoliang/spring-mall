@@ -14,6 +14,7 @@ import ltd.itlover.ltd.springbootmall.mapper.ShippingMapper;
 import ltd.itlover.ltd.springbootmall.pojo.*;
 import ltd.itlover.ltd.springbootmall.service.CartService;
 import ltd.itlover.ltd.springbootmall.service.OrderService;
+import ltd.itlover.ltd.springbootmall.utils.IdGeneratorSnowflake;
 import ltd.itlover.ltd.springbootmall.utils.Result;
 import ltd.itlover.ltd.springbootmall.vo.OrderItemVo;
 import ltd.itlover.ltd.springbootmall.vo.OrderVo;
@@ -49,6 +50,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Resource
     private OrderItemMapper orderItemMapper;
+
+    @Resource
+    private IdGeneratorSnowflake generatorSnowflake;
 
     @Override
     public void paid(Long orderNo) {
@@ -103,7 +107,7 @@ public class OrderServiceImpl implements OrderService {
         List<Product> productList = productMapper.selectByExample(productExample);
         Map<Integer, Product> productMap = productList.stream().collect(Collectors.toMap(Product::getId, product -> product));
 
-        Long distributedSingleNo = generateOrderNo();
+        Long distributedSingleNo = generateDistributeId();
         List<OrderItem> orderItemsList = new ArrayList<>();
         for (Cart cart : cartList) {
             Product product = productMap.get(cart.getProductId());
@@ -188,10 +192,6 @@ public class OrderServiceImpl implements OrderService {
         orderItem.setProductImage(product.getMainImage());
         orderItem.setTotalPrice(product.getPrice().multiply(BigDecimal.valueOf(quantity)));
         return orderItem;
-    }
-
-    private Long generateOrderNo() {
-        return System.currentTimeMillis() + new Random().nextInt(999);
     }
 
     private Order buildOrder (Integer userId, Long orderNo, Shipping shipping, List<OrderItem> orderItems) {
@@ -285,5 +285,10 @@ public class OrderServiceImpl implements OrderService {
         OrderVo orderVo = buildOrderVo(order, orderItems);
 
         return Result.success(orderVo);
+    }
+
+    @Override
+    public long generateDistributeId() {
+        return generatorSnowflake.snowflakeId();
     }
 }

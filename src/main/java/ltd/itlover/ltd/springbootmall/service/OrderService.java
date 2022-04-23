@@ -29,4 +29,6 @@ public interface OrderService {
 
     Result detail(Integer userId, Long orderNo);
 
+    long generateDistributeId();
+
 }

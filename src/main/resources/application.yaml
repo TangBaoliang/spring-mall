@@ -23,3 +23,6 @@ security:
 
 server:
   port: 8080
+snowflake:
+  datacenterId: 0
+  workerId: 0
