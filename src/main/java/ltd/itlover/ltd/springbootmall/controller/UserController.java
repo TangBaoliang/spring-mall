@@ -26,7 +26,6 @@ public class UserController {
     @Resource
     private UserService userService;
 
-
     @PostMapping("/user/register")
     @ApiOperation(value="用户注册", authorizations = { @Authorization(value="Authorization") })
     public Result register(@Valid @RequestBody User user, BindingResult bindingResult) {

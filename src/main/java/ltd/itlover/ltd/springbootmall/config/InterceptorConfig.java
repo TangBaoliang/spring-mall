@@ -13,7 +13,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new UserLoginInterceptor())
-                .addPathPatterns("/**").excludePathPatterns("/user/login", "/favicon.ico")
+                .addPathPatterns("/**").excludePathPatterns("/user/login", "/favicon.ico", "/user/register")
                 .excludePathPatterns("/swagger-ui.html/**")
                 .excludePathPatterns("/configuration/ui")
                 .excludePathPatterns("/swagger-resources/**")

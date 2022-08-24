@@ -1,5 +1,6 @@
 package ltd.itlover.ltd.springbootmall.service;
 
+import ltd.itlover.ltd.springbootmall.mapper.UserMapper;
 import ltd.itlover.ltd.springbootmall.pojo.User;
 import ltd.itlover.ltd.springbootmall.utils.Result;
 
