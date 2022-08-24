@@ -1,6 +1,8 @@
 package ltd.itlover.ltd.springbootmall.mapper;
 
 import java.util.List;
+import java.util.Set;
+
 import ltd.itlover.ltd.springbootmall.pojo.Product;
 import ltd.itlover.ltd.springbootmall.pojo.ProductExample;
 import ltd.itlover.ltd.springbootmall.pojo.ProductWithBLOBs;
@@ -34,4 +36,6 @@ public interface ProductMapper {
     int updateByPrimaryKeyWithBLOBs(ProductWithBLOBs record);
 
     int updateByPrimaryKey(Product record);
+
+    List<Product> selectByCategoryIdSet(Set<Integer> categoryIdSet);
 }
